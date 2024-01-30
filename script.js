@@ -1,12 +1,14 @@
-function playBirthdaySong() {
-  var audio = document.getElementById("birthdaySong");
-  
-  // Check if the audio is paused or has ended, then play it.
-  if (audio.paused || audio.ended) {
-    audio.play();
-  } else {
-    // If it's already playing, pause and reset to the beginning.
-    audio.pause();
-    audio.currentTime = 0;
-  }
-}
+const funnyButton = document.getElementById("funnyButton");
+
+funnyButton.addEventListener("click", () => {
+  const screenWidth = window.innerWidth;
+  const screenHeight = window.innerHeight;
+
+  // Generate random coordinates within screen boundaries
+  const randomX = Math.random() * (screenWidth - funnyButton.offsetWidth);
+  const randomY = Math.random() * (screenHeight - funnyButton.offsetHeight);
+
+  // Move the button to the new position
+  funnyButton.style.left = randomX + "px";
+  funnyButton.style.top = randomY + "px";
+});
